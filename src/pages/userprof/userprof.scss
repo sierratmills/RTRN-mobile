@@ -9,7 +9,7 @@ page-userprof {
         height: 150px;
         border-style: solid;
         border-width: 2px;
-        border-color: map-get($colors, magenta);
+        border-color: map-get($colors, secondary);
     }
 
     .back{
