@@ -4,12 +4,12 @@ export class Store {
     public storename: String;
     public storetype: String;
     public address: String;
-    public url: String;
+    public url: string;
     public lat: String;
     public lng: String;
     public googleid: String;
     
-        constructor(public store: String, private type: String, public ad: String, public URL: String, public lt: String, public lg: String, public id: String) {
+        constructor(public store: String, private type: String, public ad: String, public URL: string, public lt: String, public lg: String, public id: String) {
             this.storename = store;
             this.storetype = type;
             this.address = ad;
