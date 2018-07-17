@@ -30,6 +30,7 @@ import { OrderhistoryPage } from '../pages/orderhistory/orderhistory';
 import { OrderPage } from '../pages/order/order';
 import { OnlineStoresPage } from '../pages/online-stores/online-stores';
 import { UserListsPage } from '../pages/user-lists/user-lists';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { UserListsPage } from '../pages/user-lists/user-lists';
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
     ProductService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
