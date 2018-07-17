@@ -23,7 +23,7 @@ export class StoreSitePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
     this.store = this.navParams.get("storeParameter");
-    this.link = this.store.url;
+  //  this.link = this.store.url;
    // this.browser = this.iab.create(this.store.url);
     this.browser = this.iab.create('https://ionicframework.com/');
 
