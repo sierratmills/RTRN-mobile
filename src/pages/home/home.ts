@@ -17,7 +17,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, public http: Http) {
     if (localStorage.getItem("TOKEN")) {
     
-      this.http.get("http://localhost:3000/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
+      this.http.get("https://rtrn.herokuapp.com/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
         result => {
           console.log(result.json());
         },

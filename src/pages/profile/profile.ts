@@ -38,7 +38,7 @@ export class ProfilePage {
 
   ok(){
     this.http
-        .put("http://localhost:3000/editprofile?jwt=" + localStorage.getItem("TOKEN"), {
+        .put("https://rtrn.herokuapp.com/editprofile?jwt=" + localStorage.getItem("TOKEN"), {
           email: this.email,
           firstname: this.firstname,
           lastname: this.lastname,

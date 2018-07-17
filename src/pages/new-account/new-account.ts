@@ -41,7 +41,7 @@ export class NewAccountPage {
     }
     else {
       this.http
-        .post("http://localhost:3000/register", {
+        .post("https://rtrn.herokuapp.com/register", {
           email: this.email,
           password: this.password,
           firstname: this.firstName,

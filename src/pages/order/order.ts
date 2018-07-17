@@ -33,7 +33,7 @@ export class OrderPage {
   public num;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
-    this.http.get("http://localhost:3000/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
+    this.http.get("https://rtrn.herokuapp.com/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
       result => {
         var info = result.json();
         this.id = info.user.id;
@@ -57,7 +57,7 @@ export class OrderPage {
 
   createOrder() {
     this.http
-        .post("http://localhost:3000/createorder", {
+        .post("https://rtrn.herokuapp.com/createorder", {
           store: this.storename,
           date: this.date,
           userid: this.id,
@@ -77,7 +77,7 @@ export class OrderPage {
 
   createItem(name: string) {
     this.http
-        .post("http://localhost:3000/createitem", {
+        .post("https://rtrn.herokuapp.com/createitem", {
           storename: this.storename,
           itemname: name,
           orderid: this.id,

@@ -25,7 +25,7 @@ export class UserprofPage {
   public username= '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-    this.http.get("http://localhost:3000/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
+    this.http.get("https://rtrn.herokuapp.com/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
       result => {
         var info = result.json();
         this.firstname = info.user.firstname;

@@ -22,7 +22,7 @@ export class OrderhistoryPage {
   public orders = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
-    this.http.get("http://localhost:3000/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
+    this.http.get("https://rtrn.herokuapp.com/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
       result => {
         var info = result.json();
         this.userid = info.user.id;
@@ -34,7 +34,7 @@ export class OrderhistoryPage {
       }
     );
     
-    this.http.get("http://localhost:3000/orderhistory", this.userid).subscribe(
+    this.http.get("https://rtrn.herokuapp.com/orderhistory", this.userid).subscribe(
       result => {
         var info = result.json();
         this.orders = info;
