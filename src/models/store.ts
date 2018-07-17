@@ -7,7 +7,7 @@ export class Store {
     public url: String;
     public lat: String;
     public lng: String;
-        public googleid: String;
+    public googleid: String;
     
         constructor(public store: String, private type: String, public ad: String, public URL: String, public lt: String, public lg: String, public id: String) {
             this.storename = store;

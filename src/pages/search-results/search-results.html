@@ -27,14 +27,16 @@
 
     <h1>{{categoryUppercase}}</h1>
     <ion-item class="section" *ngFor="let item of stores">
-        <ion-list class="info">
-          <h2 ion-content style="font-size: 1.5 em">{{item.storename}}</h2>
-          <h3 ion-content style="font-size: 1 em">{{item.address}}</h3>
-        </ion-list>
-        <button ion-button ion-content small class="shop" color="magenta" (click)="presentStoreModal()">shop</button>
-        <button ion-button small class="map" color="secondary" (click)="goToMap()">view on map</button>
-        <!-- <button ion-button small class="return" color="secondary">View return policy</button> -->
+      <ion-list class="info">
+        <h2 ion-content style="font-size: 1.5 em">{{item.storename}}</h2>
+        <h3 ion-content style="font-size: 1 em">{{item.address}}</h3>
+      </ion-list>
+      <button ion-button ion-content small class="shop" color="magenta" (click)="presentStoreModal()">shop</button>
+      <button ion-button small class="map" color="secondary" (click)="goToMap()">view on map</button>
+      <!-- <button ion-button small class="return" color="secondary">View return policy</button> -->
     </ion-item>
-    <button ion-button large color="secondary" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
+    <ion-title text-center>
+      <button ion-button large color="secondary" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
+    </ion-title>
   </ion-list>
 </ion-content>
