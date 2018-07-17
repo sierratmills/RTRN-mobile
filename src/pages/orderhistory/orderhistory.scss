@@ -1,0 +1,14 @@
+page-orderhistory {
+    .orders{
+        color: map-get($colors, magenta);
+        background-color: map-get($colors, palepink)
+    }
+
+    .return{
+        z-index: 2;
+        position: absolute;
+        right: 5%;
+        top: 55%;
+        margin: auto;
+    }
+}

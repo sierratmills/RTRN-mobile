@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+      <button ion-button small clear=false color="secondary" (click)="navigateToUserProfile()">Profile</button>
+      <button ion-button small clear=true color="secondary" (click)="logOut()">Log out</button>
+      <ion-list>
+          <button ion-button icon-only (click)="navigateToShoppingCart()">
+              <ion-icon medium color="magenta" name="cart"></ion-icon>
+          </button>
+      </ion-list>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="main">
+  <button ion-button large full color="secondary" class="map" (click)="navigateToShopPage()">SHOP</button>
+<div class="slide">
+  <ion-slides shouldLockSwipes=false color="primary" item-width="100%" item-height="66%">
+    <ion-slide>
+      <ion-list>
+        <button ion-button class="buttons" medium (click)="navigateToFavorites()" color="magenta">Favorite Stores</button>
+        <ion-img style="width: 100%; height: 450px;" src="../../assets/imgs/favorites.jpg"></ion-img>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <button ion-button class="buttons" medium (click)="navigateToLists()" color="magenta">Shopping Lists</button>
+      <ion-img style="width: 100%; height: 450px;" src="../../assets/imgs/list.jpg"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <button ion-button class="buttons" medium (click)="navigateToHistory()" color="magenta">Order History</button>
+        <ion-img style="width: 100%; height: 450px;" src="../../assets/imgs/packages.jpg"></ion-img>
+    </ion-slide>
+    <ion-slide>
+        <button ion-button class="buttons" medium (click)="navigateToOnlineShops()" color="magenta">Online Shops</button>
+        <ion-img style="width: 100%; height: 450px;" src="../../assets/imgs/online.jpg"></ion-img>
+      </ion-slide>
+  </ion-slides>
+</div>
+  <button ion-button large full color="primary" class="map" (click)="navigateToMapPage()">MAP</button>
+</ion-content>

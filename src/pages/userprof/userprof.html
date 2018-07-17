@@ -1,0 +1,47 @@
+<!--
+  Generated template for the UserprofPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="magenta">
+        <ion-title>Your Profile</ion-title>
+        <ion-buttons end>
+            <button ion-button end small clear=true color="secondary" (click)="logOut()">Log out</button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="back">
+
+    <ion-img class="picture" src="../../assets/imgs/pictureholder.png"></ion-img>
+    <ion-list class="info">
+        <ion-item>
+            <ion-label stacked>First Name</ion-label>
+            <ion-title item-content>{{firstname}}</ion-title>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Last Name</ion-label>
+            <ion-title item-content>{{lastname}}</ion-title>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Username</ion-label>
+            <ion-title item-content>{{username}}</ion-title>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-title item-content>{{email}}</ion-title>
+        </ion-item>
+
+
+    <button ion-button small color="magenta">Change Password</button>
+    <button ion-button small color="magenta" (click)="navigateToProfile()">Edit Profile</button>
+</ion-list>
+</ion-content>

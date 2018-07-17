@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="magenta">
+    <ion-title>
+      Create Account
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="new-account">
+
+  <ion-img class="picture" src="../../assets/imgs/pictureholder.png"></ion-img>
+  <button class="cambutton" color="black" clear=true ion-button icon-only>
+    <ion-list>
+
+      <ion-icon medium color="black" name="camera"></ion-icon>
+      <ion-label color="black" stacked> Upload photo</ion-label>
+    </ion-list>
+  </button>
+
+  <ion-list class="info">
+    <ion-item>
+
+      <ion-label color="magenta" stacked>First Name:</ion-label>
+
+      <ion-input type="email" placeholder="First Name Input" [(ngModel)]="firstName" name="firstName"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+
+      <ion-label color="magenta" stacked>Last Name:</ion-label>
+
+      <ion-input type="email" placeholder="Last Name Input" [(ngModel)]="lastName" name="lastName"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+
+      <ion-label color="magenta" stacked>Username:</ion-label>
+
+      <ion-input type="email" placeholder="Username" [(ngModel)]="username" name="username"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+
+      <ion-label color="magenta" stacked>Email:</ion-label>
+
+      <ion-input type="email" placeholder="Email Input" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label color="magenta" stacked>Password:</ion-label>
+
+      <ion-input type="email" placeholder="Password Input" [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+
+      <ion-label color="magenta" stacked>Re-enter Password:</ion-label>
+
+      <ion-input type="email" placeholder="Password Input" [(ngModel)]="passwordCheck" name="passwordCheck"></ion-input>
+    </ion-item>
+    <ion-title text-center>
+      <button ion-button color="magenta" (click)="createUser()"> Done! </button>
+    </ion-title>
+  </ion-list>
+
+</ion-content>

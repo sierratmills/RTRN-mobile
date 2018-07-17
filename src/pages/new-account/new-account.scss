@@ -1,0 +1,46 @@
+page-new-account {
+    .new-account{
+        background-color: map-get($colors, logolightpink);
+    }
+
+    .picture{
+        z-index: 2;
+        position: absolute;
+        left: 28%;
+        top: 4%;
+        margin: auto;
+        width: 40%; 
+        height: 150px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: map-get($colors, magenta);
+    }
+
+    .info{
+        position: absolute;
+        left: 7%;
+        top: 30%;
+        width: 85%;
+        margin: auto;
+    }
+
+    .add{
+        color: map-get($colors, magenta);
+        background-color: map-get($colors, palepink);
+        font-size: 0.75em;
+        top: 10%;
+        right: 20%
+    }
+
+    .cambutton{
+        z-index: 2;
+        position: absolute;
+        top: 10%;
+        left: 37%;
+        margin: auto;
+        width: 100px; 
+        height: 90px;
+        border-width: 20px;
+    }
+
+}

@@ -1,0 +1,31 @@
+page-online-stores {
+        .search{
+            color: map-get($colors, magenta);
+            background-color: map-get($colors, palepink)
+        }
+    
+        .shop{
+            z-index: 2;
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            margin: auto;
+        }
+    
+        .map{
+            z-index: 2;
+            position: absolute;
+            right: 5%;
+            top: 55%;
+            margin: auto;
+        }
+    
+        .logpurchase{
+            z-index: 2;
+            position: absolute;
+            left: 25%;
+            bottom: 3%;
+            margin: auto;
+        }
+    
+}

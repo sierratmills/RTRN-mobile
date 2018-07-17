@@ -1,0 +1,42 @@
+page-login {
+    .login{
+        background-color: map-get($colors, light)
+    }
+
+    .info{
+        position: absolute;
+        left: 7%;
+        bottom: 45%;
+        width: 85%;
+        margin: auto;
+    }
+
+    .buttons{
+        position: absolute;
+        left: 23%;
+        bottom: 17%;
+        margin: auto;
+    }
+
+    .account{
+        position: absolute;
+        left: 5%;
+        width: 85%;
+        bottom: 35%;
+        margin: auto;
+        background-color: map-get($colors, light);
+    }
+
+    .logo{
+        position: absolute;
+        left: 27%;
+        top: 12%;
+        margin: auto;
+    }
+
+    .picture{
+        border-style: solid;
+        border-width: 4px;
+        border-color: map-get($colors, secondary);
+    }
+}

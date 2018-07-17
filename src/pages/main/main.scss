@@ -1,0 +1,24 @@
+page-main {
+    .main{
+        background-color: map-get($colors, palepink)
+    }
+
+    .buttons {
+        z-index: 2;
+        position: absolute;
+        left: 32%;
+        top: 38%;
+        margin: auto;
+    }
+
+    .map{
+        background-color: map-get($colors, secondary);
+        color: white;
+    }
+
+    .slide{
+        background-color: map-get($colors, palepink);
+        height: 450px;
+        width: 100%;
+    }
+}

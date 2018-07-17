@@ -1,0 +1,42 @@
+page-search-results {
+    .search{
+        color: map-get($colors, magenta);
+        background-color: map-get($colors, palepink)
+    }
+
+    .shop{
+        z-index: 2;
+        position: absolute;
+        right: 5%;
+        bottom: 10%;
+        margin: auto;
+    }
+    
+    .section{
+        height: 5.5em;
+    }
+
+    .info{
+        z-index: 2;
+        position: absolute;
+        top: 4%;
+        left: 3%;
+        margin: auto;
+    }
+
+    .map{
+        z-index: 2;
+        position: absolute;
+        left: 5%;
+        bottom: 10%;
+        margin: auto;
+    }
+
+    .logpurchase{
+        z-index: 2;
+        position: absolute;
+        left: 25%;
+        bottom: 3%;
+        margin: auto;
+    }
+}

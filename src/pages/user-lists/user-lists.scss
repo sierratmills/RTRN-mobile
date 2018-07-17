@@ -1,0 +1,15 @@
+page-user-lists {
+    .lists{
+        color: map-get($colors, magenta);
+        background-color: map-get($colors, palepink)
+    }
+
+    .view{
+        z-index: 2;
+        position: absolute;
+        right: 5%;
+        top: 10%;
+        margin: auto;
+    }
+
+}

@@ -1,0 +1,72 @@
+<!--
+  Generated template for the SearchResultsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Online Stores</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="navigateToMain()">
+        <ion-icon medium color="magenta" name="home"></ion-icon>
+      </button>
+
+      <button ion-button icon-only (click)="navigateToCart()">
+        <ion-icon medium color="magenta" name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="search">
+
+  <ion-list>
+
+    <ion-item>
+      <ion-list>
+
+        <h2 style="font-size: 1.5 em">Store name</h2>
+
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-list>
+
+        <h2 style="font-size: 1.5 em">Store name</h2>
+
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-list>
+
+        <h2 style="font-size: 1.5 em">Store name</h2>
+
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-list>
+
+        <h2 style="font-size: 1.5 em">Store name</h2>
+
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+
+      </ion-list>
+    </ion-item>
+  </ion-list>
+  <button ion-button large class="logpurchase" color="magenta" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
+</ion-content>

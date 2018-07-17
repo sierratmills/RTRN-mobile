@@ -1,0 +1,33 @@
+page-shop {
+    .shop{
+        background-color: map-get($colors, palepink)
+    }
+
+    .logo{
+        position: absolute;
+        left: 27%;
+        top: 12%;
+        margin: auto;
+    }
+
+    .criteria{
+        position: absolute;
+        left: 10%;
+        top: 37%;
+        width: 80%;
+        margin: auto;
+    }
+
+    .button{
+        position: absolute;
+        left: 35%;
+        bottom: 26%;
+        margin: auto;
+    }
+
+    .picture{
+        border-style: solid;
+        border-width: 4px;
+        border-color: map-get($colors, secondary);
+    }
+}
