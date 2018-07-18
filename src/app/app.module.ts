@@ -31,11 +31,6 @@ import { OrderPage } from '../pages/order/order';
 import { OnlineStoresPage } from '../pages/online-stores/online-stores';
 import { UserListsPage } from '../pages/user-lists/user-lists';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-<<<<<<< HEAD
-import { GoogleMapComponent } from '../components/google-map/google-map';
-
-=======
->>>>>>> 9cbd24c4ba18ca2083b277ec70e7c52b01ffd873
 
 @NgModule({
   declarations: [
