@@ -6,11 +6,6 @@
       </ion-searchbar>
       <button ion-button small clear=false color="secondary" (click)="navigateToUserProfile()">Profile</button>
       <button ion-button small clear=true color="secondary" (click)="logOut()">Log out</button>
-      <ion-list>
-          <button ion-button icon-only (click)="navigateToShoppingCart()">
-              <ion-icon medium color="magenta" name="cart"></ion-icon>
-          </button>
-      </ion-list>
     </ion-buttons>
   </ion-navbar>
 
@@ -25,10 +20,6 @@
         <button ion-button class="buttons" medium (click)="navigateToFavorites()" color="magenta">Favorite Stores</button>
         <ion-img style="width: 100%; height: 450px;" src="../../assets/imgs/favorites.jpg"></ion-img>
       </ion-list>
-    </ion-slide>
-    <ion-slide>
-      <button ion-button class="buttons" medium (click)="navigateToLists()" color="magenta">Shopping Lists</button>
-      <ion-img style="width: 100%; height: 450px;" src="../../assets/imgs/list.jpg"></ion-img>
     </ion-slide>
     <ion-slide>
       <button ion-button class="buttons" medium (click)="navigateToHistory()" color="magenta">Order History</button>

@@ -5,13 +5,13 @@ import { StoreSitePage } from '../store-site/store-site';
 import { ProductService } from '../../services/product.service';
 import { Store } from '../../models/store';
 import { MapPage } from '../map/map';
-import { CartPage } from '../cart/cart';
 import { HomePage } from '../home/home';
 import { MainPage } from '../main/main';
 import { Http } from '@angular/http';
 import { Order } from '../../models/order';
 import { OrderPage } from '../order/order';
 import { SearchResultMapPage } from '../search-result-map/search-result-map';
+import { ShopPage } from '../shop/shop';
 
 /**
  * Generated class for the SearchResultsPage page.
@@ -41,13 +41,8 @@ export class SearchResultsPage {
   }
 
 
-<<<<<<< HEAD
   presentStoreModal(url: string) {
     let profileModal = this.modalCtrl.create(StoreSitePage, { store: url, userId: 8675309 });
-=======
-  presentStoreModal(store: Store) {
-    let profileModal = this.modalCtrl.create(StoreSitePage, { storeParameter: store, userId: 8675309 });
->>>>>>> 9cbd24c4ba18ca2083b277ec70e7c52b01ffd873
     profileModal.onDidDismiss(data => {
       console.log(data);
     });
@@ -58,12 +53,12 @@ export class SearchResultsPage {
     console.log('ionViewDidLoad SearchResultsPage');
   }
 
-  navigateToCart() {
-    this.navCtrl.push(CartPage);
-  }
-
   navigateToMain() {
     this.navCtrl.push(MainPage);
+  }
+
+  navigateToSearch(){
+    this.navCtrl.push(ShopPage);
   }
 
   goToPlaceOrder() {

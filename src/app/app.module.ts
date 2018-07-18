@@ -19,23 +19,16 @@ import { ComponentsModule } from '../components/components.module';
 import { SearchResultsPage} from '../pages/search-results/search-results';
 import { StoreSitePage } from '../pages/store-site/store-site';
 import { ProductService } from '../services/product.service';
-import { CartPage } from '../pages/cart/cart';
 
 import { FormsModule } from '@angular/forms'
 import { PaymentPage } from '../pages/payment/payment';
 import { FavoritesPage } from '../pages/favorites/favorites';
-import { ListPage } from '../pages/list/list';
 import { Order } from '../models/order';
 import { OrderhistoryPage } from '../pages/orderhistory/orderhistory';
 import { OrderPage } from '../pages/order/order';
 import { OnlineStoresPage } from '../pages/online-stores/online-stores';
-import { UserListsPage } from '../pages/user-lists/user-lists';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-<<<<<<< HEAD
-import { GoogleMapComponent } from '../components/google-map/google-map';
-
-=======
->>>>>>> 9cbd24c4ba18ca2083b277ec70e7c52b01ffd873
+import { SearchResultMapPage } from '../pages/search-result-map/search-result-map';
 
 @NgModule({
   declarations: [
@@ -50,14 +43,12 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
     MapPage,
     SearchResultsPage,
     StoreSitePage,
-    CartPage,
     PaymentPage,
     FavoritesPage,
-    ListPage,
     OrderhistoryPage,
     OrderPage,
     OnlineStoresPage,
-    UserListsPage
+    SearchResultMapPage
   ],
   imports: [
     BrowserModule,
@@ -79,14 +70,12 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
     MapPage,
     SearchResultsPage,
     StoreSitePage,
-    CartPage,
     PaymentPage,
     FavoritesPage,
-    ListPage,
     OrderhistoryPage,
     OrderPage,
     OnlineStoresPage,
-    UserListsPage
+    SearchResultMapPage
   ],
   providers: [
     StatusBar,

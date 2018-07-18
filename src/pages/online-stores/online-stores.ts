@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { CartPage } from '../cart/cart';
 import { OrderPage } from '../order/order';
 import { MainPage } from '../main/main';
 import { StoreSitePage } from '../store-site/store-site';
@@ -32,10 +31,6 @@ export class OnlineStoresPage {
       console.log(data);
     });
     profileModal.present();
-  }
-
-  navigateToCart() {
-    this.navCtrl.push(CartPage);
   }
 
   goToPlaceOrder() {

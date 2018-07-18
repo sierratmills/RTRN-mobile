@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { MapPage } from '../map/map';
-import { CartPage } from '../cart/cart';
 import { MainPage } from '../main/main';
 import { StoreSitePage } from '../store-site/store-site';
 import { OrderPage } from '../order/order';
@@ -38,10 +37,6 @@ export class FavoritesPage {
 
   goToMap() {
     this.navCtrl.push(MapPage);
-  }
-
-  navigateToCart() {
-    this.navCtrl.push(CartPage);
   }
 
   goToPlaceOrder() {

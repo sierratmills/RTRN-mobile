@@ -36,7 +36,7 @@ export class SearchResultMapPage {
     this.mapComponent.loadMap(Number(this.lat),  Number(this.lng));
   }
 
-  testMarker(){
+  testMarker(){   
     this.mapComponent.addMarker(Number(this.lat), Number(this.lng));
   }
 

@@ -107,7 +107,7 @@ export class ShopPage {
           console.log("The zipcode you entered is not valid. Please enter a new zipcode and press search again.");
         }
       );
-    setTimeout(() => { this.navigateToSearchResults(); }, 5000);
+    setTimeout(() => { this.navigateToSearchResults(); }, 10000);
   }
 
   searchForStore(latit: String, lngit: String) {
@@ -117,27 +117,6 @@ export class ShopPage {
       zoom: 12
     });
     var service = new google.maps.places.PlacesService(map);
-    if (this.storetype == "any" || this.storetype == "") {
-      service.nearbySearch({
-        location: { lat: latit, lng: lngit },
-        radius: 15000
-      }, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (let i = 0; i < results.length; i++) {
-            var name = results[i].name;
-            var lat = results[i].geometry.location.lat();
-            var lng = results[i].geometry.location.lng();
-            var id = results[i].place_id;
-            var storet = this.storetype;
-            var store = new PartialStore(name, storet, lat, lng, id);
-            this.storeInfo[i] = store;
-            this.getDetails(id, i);
-          }
-        }
-      }, (error: any) => {
-        console.log(error);
-      });
-    } else {
       service.nearbySearch({
         location: { lat: latit, lng: lngit },
         radius: 15000,
@@ -158,7 +137,7 @@ export class ShopPage {
       }, (error: any) => {
         console.log(error);
       });
-    }
+    
   }
 
   async getDetails(id: String, i: number) {
