@@ -31,6 +31,8 @@ export class SearchResultsPage {
   public zip: String;
   public category: String;
   public categoryUppercase: String;
+  public userid;
+
 
   constructor(public modalCtrl: ModalController, public navParams: NavParams, public navCtrl: NavController, public http: Http) {
     this.zip = navParams.get('zipcode');
@@ -74,10 +76,23 @@ export class SearchResultsPage {
     });
   }
 
-  addToFavorites(store: string){
+  addToFavorites(store: Store){
+    this.http
+    .put("https://rtrn.herokuapp.com/addfavorite?jwt=" + localStorage.getItem("TOKEN"), {
+      userid: this.userid
+    })
+    .subscribe(
+      result => {
+        console.log(result);
 
-  }
+      },
 
+      err => {
+        console.log(err);
+      }
+    );
+  }  
 }
+
 
 

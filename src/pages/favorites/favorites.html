@@ -19,58 +19,17 @@
 
 <ion-content padding class="search">
 
-  <ion-list>
+    <ion-list>
+        <ion-item *ngFor="let item of stores">
+          <ion-list>
+            <h2 ion-content style="font-size: 1.5 em">{{item.storename}}</h2>
+            <h3 ion-content style="font-size: 1 em">{{item.address}}</h3>
+          </ion-list>
+          <button ion-button small class="shop" color="secondary" (click)="presentStoreModal(item.url)">Shop</button>
+         <button ion-button small class="map" color="secondary" (click)="navigateToMap(item.lat, item.lng, item.storename, item.id)">View on map</button>
+        </ion-item>
+  
+    </ion-list>
 
-    <ion-item>
-      <ion-list>
-
-        <h2 style="font-size: 1.5 em">Store name</h2>
-        <h3 style="font-size: 1 em">Address</h3>
-
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
-
-        <button ion-button small class="map" color="secondary" (click)="goToMap()">view on map</button>
-      </ion-list>
-    </ion-item>
-
-    <ion-item>
-
-      <ion-list>
-
-        <h2 style="font-size: 1.5 em">Store name</h2>
-        <h3 style="font-size: 1 em">Address</h3>
-
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
-
-        <button ion-button small class="map" color="secondary" (click)="goToMap()">view on map</button>
-      </ion-list>
-    </ion-item>
-
-    <ion-item>
-
-      <ion-list>
-
-        <h2 style="font-size: 1.5 em">Store name</h2>
-        <h3 style="font-size: 1 em">Address</h3>
-
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
-
-        <button ion-button small class="map" color="secondary" (click)="goToMap()">view on map</button>
-      </ion-list>
-    </ion-item>
-
-    <ion-item>
-
-      <ion-list>
-
-        <h2 style="font-size: 1.5 em">Store name</h2>
-        <h3 style="font-size: 1 em">Address</h3>
-
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
-
-        <button ion-button small class="map" color="secondary" (click)="goToMap()">view on map</button>
-      </ion-list>
-    </ion-item>
-  </ion-list>
-  <button ion-button large class="logpurchase" color="magenta" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
+  <button ion-button large color="magenta" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
 </ion-content>

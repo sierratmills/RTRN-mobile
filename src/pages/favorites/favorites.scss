@@ -8,23 +8,16 @@ page-favorites {
         z-index: 2;
         position: absolute;
         right: 5%;
-        top: 10%;
+        bottom: 10%;
         margin: auto;
     }
 
     .map{
         z-index: 2;
         position: absolute;
-        right: 5%;
-        top: 55%;
+        left: 5%;
+        bottom: 10%;
         margin: auto;
     }
 
-    .logpurchase{
-        z-index: 2;
-        position: absolute;
-        left: 25%;
-        bottom: 3%;
-        margin: auto;
-    }
 }
