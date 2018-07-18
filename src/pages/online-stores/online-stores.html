@@ -28,20 +28,10 @@
     <ion-item>
       <ion-list>
 
-        <h2 style="font-size: 1.5 em">Store name</h2>
+        <h2 style="font-size: 1.5 em">Revolve</h2>
 
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
-
-      </ion-list>
-    </ion-item>
-
-    <ion-item>
-
-      <ion-list>
-
-        <h2 style="font-size: 1.5 em">Store name</h2>
-
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('http://www.revolve.com/')">shop</button>
+        <button ion-button small class="return" color="secondary" (click)="presentStoreModal('http://www.revolve.com/returnsexchanges')">view return policy</button>
 
       </ion-list>
     </ion-item>
@@ -50,9 +40,10 @@
 
       <ion-list>
 
-        <h2 style="font-size: 1.5 em">Store name</h2>
+        <h2 style="font-size: 1.5 em">Princess Polly</h2>
 
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.princesspolly.com/')">shop</button>
+        <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://www.princesspolly.com/returns')">view return policy</button>
 
       </ion-list>
     </ion-item>
@@ -61,9 +52,34 @@
 
       <ion-list>
 
-        <h2 style="font-size: 1.5 em">Store name</h2>
+        <h2 style="font-size: 1.5 em">Dolls Kill</h2>
 
-        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal()">shop</button>
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.dollskill.com/')">shop</button>
+        <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://www.dollskill.com/returns-and-exchanges')">view return policy</button>
+
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-list>
+
+        <h2 style="font-size: 1.5 em">Zappos</h2>
+
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.zappos.com/')">shop</button>
+        <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://www.zappos.com/shipping-and-returns')">view return policy</button>
+
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-list>
+
+        <h2 style="font-size: 1.5 em">Amazon</h2>
+
+        <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.amazon.com/')">shop</button>
+        <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://www.amazon.com/gp/orc/returns/homepage.html/ref=orc_surl_ret_hp?fg=1')">view return policy</button>
 
       </ion-list>
     </ion-item>

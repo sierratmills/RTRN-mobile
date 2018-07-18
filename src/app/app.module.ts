@@ -31,7 +31,8 @@ import { OrderPage } from '../pages/order/order';
 import { OnlineStoresPage } from '../pages/online-stores/online-stores';
 import { UserListsPage } from '../pages/user-lists/user-lists';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { GoogleMapSearchComponent } from '../components/google-map-search/google-map-search';
+import { GoogleMapComponent } from '../components/google-map/google-map';
+
 
 @NgModule({
   declarations: [
@@ -53,8 +54,7 @@ import { GoogleMapSearchComponent } from '../components/google-map-search/google
     OrderhistoryPage,
     OrderPage,
     OnlineStoresPage,
-    UserListsPage,
-    GoogleMapSearchComponent
+    UserListsPage
   ],
   imports: [
     BrowserModule,
@@ -83,8 +83,7 @@ import { GoogleMapSearchComponent } from '../components/google-map-search/google
     OrderhistoryPage,
     OrderPage,
     OnlineStoresPage,
-    UserListsPage,
-    GoogleMapSearchComponent
+    UserListsPage
   ],
   providers: [
     StatusBar,

@@ -26,8 +26,8 @@ export class OnlineStoresPage {
     console.log('ionViewDidLoad OnlineStoresPage');
   }
 
-  presentStoreModal(store: StoreSitePage) {
-    let profileModal = this.modalCtrl.create(StoreSitePage, { storeParameter: store, userId: 8675309 });
+  presentStoreModal(url: string) {
+    let profileModal = this.modalCtrl.create(StoreSitePage, { store: url, userId: 8675309 });
     profileModal.onDidDismiss(data => {
       console.log(data);
     });

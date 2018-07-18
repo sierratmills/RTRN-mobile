@@ -17,15 +17,15 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'store-site.html',
 })
 export class StoreSitePage {
-  public store: Store;
+  public store: string;
   public link;
   public browser;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
-    this.store = this.navParams.get("storeParameter");
+    this.store = this.navParams.get("store");
   //  this.link = this.store.url;
    // this.browser = this.iab.create(this.store.url);
-    this.browser = this.iab.create('https://ionicframework.com/');
+    this.browser = this.iab.create(this.store);
 
   }
 
