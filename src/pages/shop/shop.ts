@@ -35,8 +35,20 @@ export class ShopPage {
   public addresses = [];
   public urls = []
   public type = "";
+  public user: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    this.http.get("http://localhost:3000/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
+      result => {
+        var info = result.json();
+        console.log(info);
+        this.user = info.user.id;
+      },
+
+      err => {
+        // Invalid, login!
+      }
+    );
 
   }
 
@@ -92,10 +104,10 @@ export class ShopPage {
         },
 
         (err: any) => {
-          console.log(err);
+          console.log("The zipcode you entered is not valid. Please enter a new zipcode and press search again.");
         }
       );
-     setTimeout(() => {this.navigateToSearchResults(); }, 15000);
+    setTimeout(() => { this.navigateToSearchResults(); }, 5000);
   }
 
   searchForStore(latit: String, lngit: String) {
@@ -105,26 +117,48 @@ export class ShopPage {
       zoom: 12
     });
     var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-      location: { lat: latit, lng: lngit },
-      radius: 15000,
-      type: [this.storetype]
-    }, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          var name = results[i].name;
-          var lat = results[i].geometry.location.lat();
-          var lng = results[i].geometry.location.lng();
-          var id = results[i].place_id;
-          var storet = this.storetype;
-          var store = new PartialStore(name, storet, lat, lng, id);
-          this.storeInfo[i] = store;
-          this.getDetails(id, i);
+    if (this.storetype == "any" || this.storetype == "") {
+      service.nearbySearch({
+        location: { lat: latit, lng: lngit },
+        radius: 15000
+      }, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (let i = 0; i < results.length; i++) {
+            var name = results[i].name;
+            var lat = results[i].geometry.location.lat();
+            var lng = results[i].geometry.location.lng();
+            var id = results[i].place_id;
+            var storet = this.storetype;
+            var store = new PartialStore(name, storet, lat, lng, id);
+            this.storeInfo[i] = store;
+            this.getDetails(id, i);
+          }
         }
-      }
-    }, (error: any) => {
-      console.log(error);
-    });
+      }, (error: any) => {
+        console.log(error);
+      });
+    } else {
+      service.nearbySearch({
+        location: { lat: latit, lng: lngit },
+        radius: 15000,
+        type: [this.storetype]
+      }, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (let i = 0; i < results.length; i++) {
+            var name = results[i].name;
+            var lat = results[i].geometry.location.lat();
+            var lng = results[i].geometry.location.lng();
+            var id = results[i].place_id;
+            var storet = this.storetype;
+            var store = new PartialStore(name, storet, lat, lng, id);
+            this.storeInfo[i] = store;
+            this.getDetails(id, i);
+          }
+        }
+      }, (error: any) => {
+        console.log(error);
+      });
+    }
   }
 
   async getDetails(id: String, i: number) {
@@ -140,13 +174,13 @@ export class ShopPage {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         this.addresses[i] = place.formatted_address;
         this.urls[i] = place.website;
-        var store = new Store(this.storeInfo[i].storename, this.storeInfo[i].storetype, this.addresses[i], this.urls[i], this.storeInfo[i].lat, this.storeInfo[i].lng, this.storeInfo[i].googleid);
+        var store = new Store(this.storeInfo[i].storename, this.storeInfo[i].storetype, this.addresses[i], this.urls[i], this.storeInfo[i].lat, this.storeInfo[i].lng, this.storeInfo[i].googleid, this.user);
         this.stores.push(store);
         this.storesToStore[i] = store;
         console.log(store);
-        setTimeout(() => { 
-          this.addStores(i); 
-        }, 2000);
+        setTimeout(() => {
+          this.addStores(i);
+        }, 1000);
       }
     }, (error: any) => {
       console.log(error);
@@ -164,7 +198,8 @@ export class ShopPage {
     var lt = this.storesToStore[i].lat;
     var lg = this.storesToStore[i].lng;
     var id = this.storesToStore[i].googleid;
-    this.http.post("https://rtrn.herokuapp.com/createstore",{
+    var us = this.user;
+    this.http.post("http://localhost:3000/createstore", {
       storename: name,
       storetype: type,
       url: link,
@@ -172,14 +207,15 @@ export class ShopPage {
       address: add,
       lat: lt,
       long: lg,
-      googleid: id
+      googleid: id,
+      userid: us
     }).subscribe(
       result => {
         console.log(result);
       },
       err => {
         console.log(err);
-      } 
+      }
     );
   }
 

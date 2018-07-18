@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Place details</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-  </body>
-</html>
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{store}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+ 
+    <google-map-search apiKey="AIzaSyDVAhL7WN1tys50EdRMj7vnOiIsfpBOImY"></google-map-search>
+ 
+</ion-content>
+ 
+<ion-footer>
+    <button ion-button color="light" full (click)="testMarker()">Mark Store</button>
+</ion-footer>
