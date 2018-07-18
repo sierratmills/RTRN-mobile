@@ -8,8 +8,9 @@ export class Store {
     public lat: String;
     public lng: String;
     public googleid: String;
+    public userid: number;
     
-        constructor(public store: String, private type: String, public ad: String, public URL: string, public lt: String, public lg: String, public id: String) {
+        constructor(public store: String, private type: String, public ad: String, public URL: string, public lt: String, public lg: String, public id: String, public user: number) {
             this.storename = store;
             this.storetype = type;
             this.address = ad;
@@ -17,6 +18,7 @@ export class Store {
             this.lat = lt;
             this.lng = lg;
             this.googleid = id;
+            this.userid = user;
         }
 
     

@@ -11,6 +11,7 @@ import { MainPage } from '../main/main';
 import { Http } from '@angular/http';
 import { Order } from '../../models/order';
 import { OrderPage } from '../order/order';
+import { SearchResultMapPage } from '../search-result-map/search-result-map';
 
 /**
  * Generated class for the SearchResultsPage page.
@@ -52,12 +53,6 @@ export class SearchResultsPage {
     console.log('ionViewDidLoad SearchResultsPage');
   }
 
-  goToMap() {
-    this.navCtrl.push(MapPage,{
-      id: "ChIJ-zqYmGihxokRVJNgk52e-MQ"
-    });
-  }
-
   navigateToCart() {
     this.navCtrl.push(CartPage);
   }
@@ -70,6 +65,14 @@ export class SearchResultsPage {
     this.navCtrl.push(OrderPage);
   }
 
+  navigateToMap(latitude: string, longitude: string, store: string, gid: string){
+    this.navCtrl.push(SearchResultMapPage,{
+      id: gid,
+      name: store,
+      lt: latitude,
+      lg: longitude
+    });
+  }
 
 }
 

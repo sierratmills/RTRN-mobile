@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GoogleMapSearchComponent } from '../../components/google-map-search/google-map-search';
+
 
 /**
  * Generated class for the SearchResultMapPage page.
@@ -14,41 +16,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search-result-map.html',
 })
 export class SearchResultMapPage {
+  @ViewChild(GoogleMapSearchComponent) mapComponent: GoogleMapSearchComponent;
   public placeid = "";
+  public store="";
+  public lat="";
+  public lng="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.placeid = navParams.get('id');
-    this.initMap();
+    this.store = navParams.get('name');
+    this.lat = navParams.get('lt');
+    this.lng = navParams.get('lg');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchResultMapPage');
+    console.log(this.lat);
+    console.log(this.lng);
+    this.mapComponent.loadMap(Number(this.lat),  Number(this.lng));
   }
 
-  initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -33.866, lng: 151.196},
-      zoom: 15
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-    var service = new google.maps.places.PlacesService(map);
-
-    service.getDetails({
-      placeId: this.placeid
-    }, function(place, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-            'Place ID: ' + place.formatted_address + '</div>');
-          infowindow.open(map, this);
-        });
-      }
-    });
+  testMarker(){
+    this.mapComponent.addMarker(Number(this.lat), Number(this.lng));
   }
 
 }
