@@ -36,30 +36,29 @@ export class LoginPage {
   }
 
   login() {
-    // this.http
-    //   .post("https://rtrn.herokuapp.com/login", {
-    //     email: this.email,
-    //     password: this.password
-    //   })
-    //   .subscribe(
-    //     result => {
-    //       console.log(result);
+    this.http
+      .post("https://rtrn.herokuapp.com/login", {
+        email: this.email,
+        password: this.password
+      })
+      .subscribe(
+        result => {
+          console.log(result);
 
-    //       var jwtResponse = result.json();
-    //       var token = jwtResponse.token;
+          var jwtResponse = result.json();
+          var token = jwtResponse.token;
 
-    //       localStorage.setItem("TOKEN", token);
+          localStorage.setItem("TOKEN", token);
 
-    //       let t = localStorage.getItem("TOKEN");
-    //       this.navigateToMain();
-    //     },
+          let t = localStorage.getItem("TOKEN");
+          this.navigateToMain();
+        },
 
-    //     err => {
-    //       this.showToastIncorrectLogin();
-    //       console.log(err);
-    //     }
-    //   );    
-    this.navigateToMain();
+        err => {
+          this.showToastIncorrectLogin();
+          console.log(err);
+        }
+      );    
     //if user exists then make a user and call profile.setInfo() and navigateToMain()
   }
 

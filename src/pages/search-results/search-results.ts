@@ -50,6 +50,7 @@ export class SearchResultsPage {
   public lat: number;
   public lng: number;
   public type: string;
+  public userid: number;
 
   constructor(public modalCtrl: ModalController, public navParams: NavParams, public navCtrl: NavController, public http: Http) {
     this.zip = navParams.get('zipcode');
@@ -94,10 +95,6 @@ export class SearchResultsPage {
       lt: latitude,
       lg: longitude
     });
-  }
-
-  addToFavorites(store: string){
-
   }
 
   moreStores(){
@@ -240,7 +237,20 @@ export class SearchResultsPage {
     }).subscribe(
       result => {
         console.log(result);
+      });
+  }
+  
+  addToFavorites(){
+    this.http
+    .put("https://rtrn.herokuapp.com/addfavorite?jwt=" + localStorage.getItem("TOKEN"), {
+      userid: this.userid
+    })
+    .subscribe(
+      result => {
+        console.log(result);
+
       },
+
       err => {
         console.log(err);
       }
@@ -248,5 +258,6 @@ export class SearchResultsPage {
   }
 
 }
+
 
 
