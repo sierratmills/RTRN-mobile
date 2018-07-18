@@ -76,7 +76,7 @@ export class SearchResultsPage {
     });
   }
 
-  addToFavorites(store: Store){
+  addToFavorites(){
     this.http
     .put("https://rtrn.herokuapp.com/addfavorite?jwt=" + localStorage.getItem("TOKEN"), {
       userid: this.userid

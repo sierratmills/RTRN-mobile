@@ -5,6 +5,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NewAccountPage } from '../new-account/new-account';
 import 'rxjs/add/operator/map';
+import { MainPage } from '../main/main';
 
 
 @Component({
@@ -28,6 +29,10 @@ export class HomePage {
       );
 
     }
+  }
+
+  navigateThere() {
+    this.navCtrl.push(MainPage);
   }
 
   navigateToLogin() {
