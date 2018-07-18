@@ -168,7 +168,8 @@ export class GoogleMapComponent {
                   zoom: 15
               };
 
-              this.map = new google.maps.Map(this.element.nativeElement, mapOptions);
+        this.map = new google.maps.Map(this.element.nativeElement, mapOptions);
+      
               resolve(true);
 
           }, (err) => {

@@ -35,29 +35,40 @@ export class ShopPage {
   public addresses = [];
   public urls = []
   public type = "";
-  public user: number;
+  public nextPageToken: string;
+  public lat: number;
+  public lng: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-    this.http.get("http://localhost:3000/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
-      result => {
-        var info = result.json();
-        console.log(info);
-        this.user = info.user.id;
-      },
 
-      err => {
-        // Invalid, login!
-      }
-    );
 
   }
 
   navigateToSearchResults() {
+    var latlng = new google.maps.LatLng(this.lat, this.lng);
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: latlng,
+      zoom: 12
+    });
+    var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: { lat: this.lat, lng: this.lng },
+        radius: 15000,
+        type: [this.storetype]
+      }, (next_page_token) => {
+        this.nextPageToken = next_page_token;
+        console.log("NEXT PAGE TOKEN: " + this.nextPageToken);
+      }, (error: any) => {
+        console.log(error);
+      });
     console.log("Navigating..");
     this.navCtrl.push(SearchResultsPage, {
       category: this.type,
       zipcode: this.location,
-      stores: this.stores
+      stores: this.stores,
+      nextPage: this.nextPageToken,
+      lat: this.lat,
+      lng: this.lng
     });
   }
 
@@ -100,6 +111,8 @@ export class ShopPage {
           var info = data.json();
           lat = info.results[0].geometry.location.lat;
           lng = info.results[0].geometry.location.lng;
+          this.lat = Number(lat);
+          this.lng = Number(lng);
           this.searchForStore(lat, lng);
         },
 
@@ -131,16 +144,15 @@ export class ShopPage {
             var storet = this.storetype;
             var store = new PartialStore(name, storet, lat, lng, id);
             this.storeInfo[i] = store;
-            this.getDetails(id, i);
+            this.getDetails(i);
           }
         }
       }, (error: any) => {
         console.log(error);
       });
-    
   }
 
-  async getDetails(id: String, i: number) {
+  async getDetails(i: number) {
     var latlng = new google.maps.LatLng(this.storeInfo[i].lat, this.storeInfo[i].lng);
     map = new google.maps.Map(document.getElementById('map'), {
       center: latlng,
@@ -153,7 +165,7 @@ export class ShopPage {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         this.addresses[i] = place.formatted_address;
         this.urls[i] = place.website;
-        var store = new Store(this.storeInfo[i].storename, this.storeInfo[i].storetype, this.addresses[i], this.urls[i], this.storeInfo[i].lat, this.storeInfo[i].lng, this.storeInfo[i].googleid, this.user);
+        var store = new Store(this.storeInfo[i].storename, this.storeInfo[i].storetype, this.addresses[i], this.urls[i], this.storeInfo[i].lat, this.storeInfo[i].lng, this.storeInfo[i].googleid, null);
         this.stores.push(store);
         this.storesToStore[i] = store;
         console.log(store);
@@ -177,7 +189,6 @@ export class ShopPage {
     var lt = this.storesToStore[i].lat;
     var lg = this.storesToStore[i].lng;
     var id = this.storesToStore[i].googleid;
-    var us = this.user;
     this.http.post("https://rtrn.herokuapp.com/createstore", {
       storename: name,
       storetype: type,
@@ -187,7 +198,7 @@ export class ShopPage {
       lat: lt,
       long: lg,
       googleid: id,
-      userid: us
+      userid: null
     }).subscribe(
       result => {
         console.log(result);
