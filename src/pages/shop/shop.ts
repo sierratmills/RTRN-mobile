@@ -199,7 +199,7 @@ export class ShopPage {
     var lg = this.storesToStore[i].lng;
     var id = this.storesToStore[i].googleid;
     var us = this.user;
-    this.http.post("http://localhost:3000/createstore", {
+    this.http.post("https://rtrn.herokuapp.com/createstore", {
       storename: name,
       storetype: type,
       url: link,

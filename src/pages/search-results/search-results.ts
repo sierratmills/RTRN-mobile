@@ -41,8 +41,13 @@ export class SearchResultsPage {
   }
 
 
+<<<<<<< HEAD
   presentStoreModal(url: string) {
     let profileModal = this.modalCtrl.create(StoreSitePage, { store: url, userId: 8675309 });
+=======
+  presentStoreModal(store: Store) {
+    let profileModal = this.modalCtrl.create(StoreSitePage, { storeParameter: store, userId: 8675309 });
+>>>>>>> 9cbd24c4ba18ca2083b277ec70e7c52b01ffd873
     profileModal.onDidDismiss(data => {
       console.log(data);
     });
