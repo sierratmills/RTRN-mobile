@@ -40,7 +40,7 @@ export class SearchResultsPage {
   }
 
 
-  presentStoreModal(store: StoreSitePage) {
+  presentStoreModal(store: Store) {
     let profileModal = this.modalCtrl.create(StoreSitePage, { storeParameter: store, userId: 8675309 });
     profileModal.onDidDismiss(data => {
       console.log(data);

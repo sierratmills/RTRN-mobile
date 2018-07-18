@@ -25,7 +25,7 @@ export class StoreSitePage {
     this.store = this.navParams.get("storeParameter");
   //  this.link = this.store.url;
    // this.browser = this.iab.create(this.store.url);
-    this.browser = this.iab.create('https://ionicframework.com/');
+    this.browser = this.iab.create('https://ionicframework.com/', '_blank');
 
   }
 
