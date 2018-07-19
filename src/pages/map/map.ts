@@ -16,7 +16,7 @@ import { GoogleMapComponent } from '../../components/google-map/google-map';
 })
 export class MapPage {
 
-  @ViewChild(GoogleMapComponent) mapComponent: GoogleMapComponent;
+  @ViewChild('map') mapComponent: GoogleMapComponent;
  
     constructor() {
  
