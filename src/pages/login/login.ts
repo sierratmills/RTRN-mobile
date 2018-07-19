@@ -59,7 +59,6 @@ export class LoginPage {
           console.log(err);
         }
       );    
-
     //if user exists then make a user and call profile.setInfo() and navigateToMain()
   }
 
