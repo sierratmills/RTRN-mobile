@@ -78,7 +78,7 @@ export class SearchResultsPage {
 
   addToFavorites(){
     this.http
-    .put("https://rtrn.herokuapp.com/addfavorite?jwt=" + localStorage.getItem("TOKEN"), {
+    .put("https://rtrn.herokuapp.com/addfavorite", {
       userid: this.userid
     })
     .subscribe(
