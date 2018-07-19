@@ -34,7 +34,7 @@ export class ProfilePage {
 
   navigateToProfile() {
     console.log("Navigating..");
-    this.navCtrl.push(UserprofPage);
+    this.navCtrl.pop();
   }
 
   ok(){
