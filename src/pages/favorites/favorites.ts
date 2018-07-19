@@ -37,7 +37,7 @@ export class FavoritesPage {
       }
     );
 
-    this.http.get("https://rtrn.herokuapp.com/favoritestores", this.userid).subscribe(
+    this.http.get("https://rtrn.herokuapp.com/favoritestores" + this.userid).subscribe(
       result => {
         var info = result.json();
         this.stores = info;
