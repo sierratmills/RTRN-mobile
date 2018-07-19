@@ -29,10 +29,18 @@ export class UserprofPage {
     .subscribe(
       result => {
         var info = result.json();
-        this.firstname = info.user.firstname;
-        this.lastname = info.user.lastname;
-        this.email = info.user.email;
-        this.username = info.user.username;
+        if (navParams.get('firstname')!=''){
+          this.firstname = navParams.get('firstname');
+        } else this.firstname = info.user.firstname;
+        if (navParams.get('lastname')!=''){
+          this.lastname = navParams.get('lastname');
+        } else this.lastname = info.user.lastname;
+        if (navParams.get('email')!=''){
+          this.email = navParams.get('email');
+        } else this.email = info.user.email;
+        if (navParams.get('username')!=''){
+          this.username = navParams.get('username');
+        } this.username = info.user.username;
         console.log(info);
       },
 

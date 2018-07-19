@@ -54,7 +54,12 @@ export class MainPage {
 
   navigateToUserProfile() {
     console.log("Navigating..");
-    this.navCtrl.push(UserprofPage);
+    this.navCtrl.push(UserprofPage, {
+      firstname: '', 
+      lastname: '',
+      username: '',
+      email: ''
+    });
   }
 
   navigateToOnlineShops() {

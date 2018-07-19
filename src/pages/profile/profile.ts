@@ -34,7 +34,12 @@ export class ProfilePage {
 
   navigateToProfile() {
     console.log("Navigating..");
-    this.navCtrl.pop();
+    this.navCtrl.push(UserprofPage, {
+      firstname: this.firstname, 
+      lastname: this.lastname,
+      username: this.username,
+      email:this.email
+    });
   }
 
   ok(){
