@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { MainPage } from '../main/main';
 import { Http } from "../../../node_modules/@angular/http";
+import { UserprofPage } from '../userprof/userprof';
 
 /**
  * Generated class for the ProfilePage page.
@@ -33,7 +34,7 @@ export class ProfilePage {
 
   navigateToProfile() {
     console.log("Navigating..");
-    this.navCtrl.pop();
+    this.navCtrl.push(UserprofPage);
   }
 
   ok(){
