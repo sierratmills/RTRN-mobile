@@ -25,19 +25,8 @@ export class FavoritesPage {
   public userid;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
-    this.http.get("https://rtrn.herokuapp.com/verify?jwt=" + localStorage.getItem("TOKEN")).subscribe(
-      result => {
-        var info = result.json();
-        this.userid = info.user.id;
-        console.log(info);
-      },
 
-      err => {
-        // Invalid, login!
-      }
-    );
-
-    this.http.get("https://rtrn.herokuapp.com/favoritestores", this.userid).subscribe(
+    this.http.get("https://rtrn.herokuapp.com/favoritestores?jwt=" + localStorage.getItem("TOKEN")).subscribe(
       result => {
         var info = result.json();
         this.stores = info;
