@@ -35,7 +35,6 @@ export class ShopPage {
   public addresses = [];
   public urls = []
   public type = "";
-  public nextPageToken: string;
   public lat: number;
   public lng: number;
 
@@ -45,30 +44,14 @@ export class ShopPage {
   }
 
   navigateToSearchResults() {
-    var latlng = new google.maps.LatLng(this.lat, this.lng);
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: latlng,
-      zoom: 12
-    });
-    var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-        location: { lat: this.lat, lng: this.lng },
-        radius: 15000,
-        type: [this.storetype]
-      }, (next_page_token) => {
-        this.nextPageToken = next_page_token;
-        console.log("NEXT PAGE TOKEN: " + this.nextPageToken);
-      }, (error: any) => {
-        console.log(error);
-      });
     console.log("Navigating..");
     this.navCtrl.push(SearchResultsPage, {
       category: this.type,
       zipcode: this.location,
       stores: this.stores,
-      nextPage: this.nextPageToken,
       lat: this.lat,
-      lng: this.lng
+      lng: this.lng,
+      previousStores: this.stores
     });
   }
 
@@ -120,7 +103,7 @@ export class ShopPage {
           console.log("The zipcode you entered is not valid. Please enter a new zipcode and press search again.");
         }
       );
-    setTimeout(() => { this.navigateToSearchResults(); }, 10000);
+    setTimeout(() => { this.navigateToSearchResults(); }, 15000);
   }
 
   searchForStore(latit: String, lngit: String) {
@@ -134,7 +117,7 @@ export class ShopPage {
         location: { lat: latit, lng: lngit },
         radius: 15000,
         type: [this.storetype]
-      }, (results, status) => {
+      }, (results, status, pagination) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (let i = 0; i < results.length; i++) {
             var name = results[i].name;
@@ -147,6 +130,9 @@ export class ShopPage {
             this.getDetails(i);
           }
         }
+        if (pagination.hasNextPage) {
+          pagination.nextPage();
+      }
       }, (error: any) => {
         console.log(error);
       });

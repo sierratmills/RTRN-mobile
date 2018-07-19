@@ -20,7 +20,7 @@
 <ion-content padding class="search">
 
   <ion-list>
-
+    <h1>Women's</h1>
     <ion-item>
       <ion-list>
 
@@ -56,6 +56,7 @@
       </ion-list>
     </ion-item>
 
+    <h1>Shoes</h1>
     <ion-item>
 
       <ion-list>
@@ -67,7 +68,7 @@
 
       </ion-list>
     </ion-item>
-
+    <h1>Various</h1>
     <ion-item>
 
       <ion-list>
@@ -79,6 +80,40 @@
 
       </ion-list>
     </ion-item>
+    <ion-item>
+      <ion-list>
+
+          <h2 style="font-size: 1.5 em">6pm</h2>
+  
+          <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.6pm.com/')">shop</button>
+          <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://www.6pm.com/return-questions')">view return policy</button>
+  
+        </ion-list>
+    </ion-item>
+    <ion-item>
+        <ion-list>
+  
+            <h2 style="font-size: 1.5 em">Overstock</h2>
+    
+            <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.overstock.com/')">shop</button>
+            <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://api.overstock.com/help/article/international-returns')">view return policy</button>
+    
+          </ion-list>
+      </ion-item>
+    <h1>Designer</h1>
+    <ion-item>
+
+        <ion-list>
+  
+          <h2 style="font-size: 1.5 em">Ssence</h2>
+  
+          <button ion-button small class="shop" color="secondary" (click)="presentStoreModal('https://www.ssense.com/')">shop</button>
+          <button ion-button small class="return" color="secondary" (click)="presentStoreModal('https://www.ssense.com/customer-service/return-policy')">view return policy</button>
+  
+        </ion-list>
+      </ion-item>
+
+      <button ion-button large color="magenta" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
   </ion-list>
-  <button ion-button large class="logpurchase" color="magenta" (click)="goToPlaceOrder()">LOG A PURCHASE</button>
+
 </ion-content>
