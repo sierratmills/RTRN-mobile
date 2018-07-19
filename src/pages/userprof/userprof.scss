@@ -16,11 +16,19 @@ page-userprof {
         background-color: map-get($colors, palepurple);
     }
 
+    .edit{
+        z-index: 2;
+        position: absolute;
+        left: 30%;
+        margin: auto;
+    }
+
     .info{
         z-index: 2;
         position: absolute;
         top: 30%;
         left: 15%;
+        width: 68%;
         margin: auto;
     }
 }
