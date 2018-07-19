@@ -240,10 +240,12 @@ export class SearchResultsPage {
       });
   }
   
-  addToFavorites(){
+  addToFavorites(name: string, latit: number, longit: number){
     this.http
     .put("https://rtrn.herokuapp.com/addfavorite?jwt=" + localStorage.getItem("TOKEN"), {
-      userid: this.userid
+      storename: name,
+      lat: latit,
+      long: longit
     })
     .subscribe(
       result => {
